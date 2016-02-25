@@ -2,16 +2,18 @@
 <html>
 <head>
 <title>IPM</title>
-<!--<link rel="stylesheet" href="style.css">-->
 <meta charset="utf-8"> <!-- Obrigatório incluir em TODOS os .html -->
+<link rel="stylesheet" type="text/css" href="style.css">
 <style type="text/css">
 
 </style>
 
 
-
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
 <script type="text/javascript">
-  function toggleVisible(id) {    
+  function changeImage(cena) {
+    if ($(cena.id).attr('src') == cena.src) $(cena.id).attr('src', cena.othersrc);
+    else $(cena.id).attr('src', cena.src);
   }
 
 </script>
@@ -36,9 +38,9 @@
     <td>N_Aluno3</td>
   </tr>
   <tr>
-    <td><img id="rgb" src = "student1.png" width="98"></td>
-    <td><img id="cmy" src = "student2.png" width="100"></td> 
-    <td><img id="hsv" src = "student3.png" width="90"></td>
+    <td><img onclick="changeImage({id: '#rgb', src: 'student1.png', othersrc: 'ist168199.jpg'})" id="rgb" src = "student1.png"></td>
+    <td><img onclick="changeImage({id: '#cmy', src: 'student2.png', othersrc: 'marcos.png'})" id="cmy" src = "student2.png"></td> 
+    <td><img onclick="changeImage({id: '#hsv', src: 'student3.png', othersrc: 'ist178198.jpg'})" id="hsv" src = "student3.png"></td>
   </tr>
 </table>
 
