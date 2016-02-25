@@ -1,0 +1,13 @@
+#Todo o texto é enviado com LF (0x0A) no fim de cada linha
+*		text=auto
+
+#Estes ficheiros vão ter as suas linhas normalizadas
+*.html	text
+*.css	text
+*.js	text
+*.md	text
+
+#Estes ficheiros não vão ser mexidos
+*.jpeg	binary
+*.jpg	binary
+*.png	binary
