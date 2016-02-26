@@ -2,6 +2,14 @@ table tr, table th {
   width: 120px;
 }
 
+table td {
+	width: 130px;	
+}
+
+#images {
+	height: 130px;
+}
+
 table img {
   height: 120px;
   width: auto;
