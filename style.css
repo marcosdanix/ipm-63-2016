@@ -23,3 +23,15 @@ table img {
 #links {
   padding: 20px;
 } 
+
+div.section {
+  margin-bottom: 3em;
+}
+
+h2.section {
+  margin: 1em 0;
+}
+
+div.inner_section {
+  line-height: 1.5em;
+}
