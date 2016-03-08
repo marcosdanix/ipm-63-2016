@@ -26,10 +26,14 @@ table img {
 
 div.section {
   margin-bottom: 3em;
+  background-color: pink;
+  padding: 1em;
 }
 
 h2.section {
   margin: 1em 0;
+  margin-top: 0;
+  margin-bottom: 1em;
 }
 
 div.inner_section {
