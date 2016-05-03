@@ -1,0 +1,256 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+ /* background-image: url("barISTa_bg.jpg");	
+  background-size: 100%; */
+  background-color: black;
+  color: white;
+  font-size: 20pt;
+  line-height: 1.5em;
+}
+
+li {
+  list-style-type: none;
+}
+
+div.left-sidebar {
+  width: 25%;
+  min-height: 99vh;
+  float: left;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.main {
+  width: 49%;
+  float: left;
+}
+
+.right-sidebar {
+  width: 25%;
+  float: left;
+  background: rgba(0, 0, 0, 0.5);
+}
+.top-scrollbar {
+	position: relative;
+	width: 50%;
+}
+
+.top-scrollbar h3 {
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ margin: 0;
+ line-height: 50px;
+ text-align: center;
+ /* Starting position */
+ -moz-transform:translateX(100%);
+ -webkit-transform:translateX(100%);	
+ transform:translateX(100%);
+ /* Apply animation to this element */	
+ -moz-animation: top-scrollbar 15s linear infinite;
+ -webkit-animation: top-scrollbar 15s linear infinite;
+ animation: top-scrollbar 15s linear infinite;
+}
+/* Move it (define the animation) */
+@-moz-keyframes top-scrollbar {
+ 0%   { -moz-transform: translateX(70%); }
+ 100% { -moz-transform: translateX(30%); }
+}
+@-webkit-keyframes top-scrollbar {
+ 0%   { -webkit-transform: translateX(70%); }
+ 100% { -webkit-transform: translateX(30%); }
+}
+@keyframes top-scrollbar {
+ 0%   { 
+ -moz-transform: translateX(70%); /* Firefox bug fix */
+ -webkit-transform: translateX(70%); /* Firefox bug fix */
+ transform: translateX(70%); 		
+ }
+ 100% { 
+ -moz-transform: translateX(30%); /* Firefox bug fix */
+ -webkit-transform: translateX(30%); /* Firefox bug fix */
+ transform: translateX(30%); 
+ }
+}
+
+div#popular > h3 {
+  text-align: left;
+}
+
+div#menu {
+  text-align: center;
+  line-height: 2em;
+}
+
+div#alc1 p {
+  text-align: center;
+  margin-top: 10%;
+}
+
+div#alc2 {
+  margin-left: 1.5em;
+  margin-top: 10%;
+  line-height: 2em;
+}
+
+div#alc3 {
+  margin-left: 1.5em;
+  margin-top: 10%;
+  line-height: 2em;
+}
+
+div#alc4 {
+  margin-left: 1.5em;
+  margin-top: 10%;
+  line-height: 2em;
+}
+
+div#alc5 {
+  margin-left: 1.5em;
+  margin-top: 10%;
+  line-height: 2em;
+}
+
+div#alc1 img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+div#music {
+  text-align: left;
+  line-height: 2em;
+  margin-top: 15%;
+  margin-left: 10%;
+  
+}
+
+div#queue {
+  text-align: left;
+  line-height: 1em;
+  margin-top: 10%;
+  margin-left: 10%;
+  
+}
+button {
+  border: none;
+  font-size: 24pt;
+  color: white;  
+}
+
+#hideorderalert {
+  background-color: green;
+  position: absolute;
+}
+
+#orderalert {
+	background: rgba(128, 128, 128, 0.7);
+	width: 60%;
+	margin: auto;
+	padding: 1em;
+	margin-top: 20%;
+	
+}
+
+#hidemusicalert {
+  background-color: green;
+  position: absolute;
+}
+
+#musicalert {
+	background: rgba(128, 128, 128, 0.7);
+	width: 60%;
+	margin: auto;
+	padding: 1em;
+	margin-top: 20%;
+	
+}
+
+#hidecabalert {
+	background-color: green;
+    position: absolute;
+}
+
+#cabalert {
+	background: rgba(128, 128, 128, 0.7);
+	width: 60%;
+	margin: auto;
+	padding: 1em;
+	margin-top: 20%;
+}
+
+#stop {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: red;
+}
+
+#ok {
+  position: absolute;
+  left: 30%;
+  transform: translateX(-50%);
+  background-color: #0a0;
+}
+
+#calltaxi {
+  position: absolute;
+  left: 60%;
+  transform: translateX(-50%);
+  background-color: blue;
+}
+
+#showorder {
+  position: absolute;
+  left: 60%;
+  transform: translateX(-50%);
+  background-color: blue;
+}
+
+#okmusic {
+	background-color: green;
+}
+
+#stopmusic {
+	background-color: red;
+}
+
+#okorder {
+	background-color: green;
+	position: absolute;
+}
+
+#cancelorder {
+	background-color: red;
+	position: absolute;
+	left: 50%;
+}
+
+.drink {
+	padding-right: 0.5em;
+}
+
+.drink button {
+	margin-right: 1em;
+}
+
+.drink > div {
+	text-align: right;
+}
+
+.more {
+	background-color: #0a0;
+}
+
+.less {
+	background-color: red;
+}
+
+#order {
+	background: rgba(128, 128, 128, 0.7);
+	width: 60%;
+	margin: auto;
+	padding: 1em;
+	margin-top: 20%;
+	
+}
