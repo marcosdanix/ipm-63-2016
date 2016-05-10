@@ -1,336 +1,107 @@
-<!doctype html>
-<html ng-app="BarISTa">
-  <head>
-    <title>BarISTa</title>
-  <!--Nunca se esqueçam de meter esta linha no head de uma página HTML
-      E verifiquem que estão usar UTF-8 -->
-  <meta charset="utf-8"></meta>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <!-- Os scripts aqui -->
-  <!-- <script src="script.js"></script> -->
-  <script src="https://code.jquery.com/jquery-1.12.2.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>  
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.10/angular.min.js"></script>
-  <script src="barista.js"></script>
-  <script>
-    var state="home";
-	var musicqueue=[];
+<!DOCTYPE html>
+<html>
+<head>
+<title>IPM</title>
+<meta charset="utf-8"> <!-- Obrigatório incluir em TODOS os .html -->
+<link rel="stylesheet" type="text/css" href="style.css">
+<style type="text/css">
 
-	
-	
-     $(function() {
-       $("#bebidas").accordion({
-         collapsible: true,
-         heightStyle: "content",
-         header: "h3",
-       });
-     });
-    
-    function notImplemented() {
-      alert("Não está implementado");
-    }
-    
-	function doMusic() {
-		$("#queue").show();
-		$("#music").show();
-	}
-	
-	function requestSong(value) {
-		if (musicqueue.indexOf(value)==-1) {
-			musicqueue+=convertMusic(value);
-			musicqueue+="<br><br>";
-		}
-		$("#queue").hide();
-		$("#music").hide();
-		changeText();
-		$("#musicalert").show();
-	}
-	
-	function hideMusicAlert() {
-		$("#musicalert").hide();	
-	}
+</style>
 
-	function cancelMusic() {
-		$("#queue").hide();
-		$("#music").hide();
-	}
-	
-	function convertMusic(value) {
-		switch(value) {
-			case "Closing": return "Semisonic - Closing Time";
-			case "Prayer": return "Bon Jovi - Livin’ on a Prayer";
-			case "Believe": return "Journey - Don’t Stop Believing";
-			case "Caroline": return "Neil Diamond - Sweet Caroline";
-			case "Sugar": return "Def Leppard - Pour Some Sugar on Me";
-		}
-	}
 
-    function doAlc1() {
-      if (state == "home") {
-        $("#alc1").show();
-        state = "alc1";
-      }
-    }
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+<script type="text/javascript">
+  function changeImage(cena) {
+    if ($(cena.id).attr('src') == cena.src) {
+	  $(cena.id).attr('src', cena.othersrc);
+	  $(cena.id).css('border', '1px solid');
+	}
+    else {
+	  $(cena.id).attr('src', cena.src);
+	  $(cena.id).css('border', '0');
+	}
+  }
 
-    function doAlc2() {
-        $("#alc1").hide();
-        $("#alc2").show();
-        state = "alc2"; 
-    }
-		
-    function goHome() {
-	  hideAlc();
-	  cancelMusic();
-	  hideMusicAlert();
-	  hideOrderAlert();
-	  cancelOrder();
-	  hideCab();
-	  hideHelp();
-	  hidePay();
-	  hideconfirmPay();
-	  hidefinalizePay();
-      state = "home";
-    }
-	
-	function hideAlc() {
-		$("#alc1").hide();
-		$("#alc2").hide();
-		$("#alc3").hide();
-		$("#alc4").hide();
-		$("#alc5").hide();
-		state="home";
-	}
-	
-	function randAlc() {
-		$("#alc1").hide();
-		switch(Math.floor(Math.random()* 4 ) + 1) {
-			case 1: $("#alc2").show();
-				break;
-			case 2: $("#alc3").show();
-				break;
-			case 3: $("#alc4").show();
-				break;
-			case 4: $("#alc5").show();
-				break;
-		}
-	}	
+</script>
+</head>
 
-	function changeText() {
-		var songs=[];
-		for (i=0; i<musicqueue.length; i++) {
-			songs+=musicqueue[i];
-		}
-		document.getElementById("showqueue").innerHTML=songs;
-	}
-	
-	function showOrder() {
-		$("#order").show();
-	}
 
-	function hideOrderAlert() {
-		$("#orderalert").hide();
-	}
+<body style="font-family:calibri; text-align: center;" >
 
-	function confirmOrder() {
-		$("#order").hide();
-		$("#orderalert").show();
-	}
-	
-	function cancelOrder() {
-		$("#order").hide();
-	}
-	
-	function callCab() {
-		$("#cabalert").show();
-	}
-	
-	function hideCab() {
-		$("#cabalert").hide();
-	}
-	
-	function goHelp() {
-		$("#helpalert").show();
-	}
-	
-	function hideHelp() {
-		$("#helpalert").hide();
-	}
-	function goPay() {
-		$("#payalert").show();
-	}
-	function hidePay() {
-		$("#payalert").hide();
-	}
-	function confirmPay() {
-		$("#payalert").hide();
-		$("#confirmpayalert").show();
-	}
-	function hideconfirmPay() {
-		$("#confirmpayalert").hide();
-	}
-	function finalizePay() {
-		$("#confirmpayalert").hide();
-		$("#payedalert").show();
-	}
-	function hidefinalizePay() {
-		$("#payedalert").hide();
-	}
-	
-  </script>
-  </head>
-  <body>
-	<div id="tab">
-		<p>CONTA: 0€</p>
-	</div>
-	</div>
-	<div class = "top-scrollbar">
-      <div id="playing" onclick="doMusic()">
-	  <h3>A ouvir: Bon Jovi - Livin’ on a Prayer</h3>
-      </div>  
-	</div>
-	
-    <div class = "left-sidebar">
-      <div id="bebidas" ng-controller="drinkCtrl">
-        <div ng-repeat="drinkMenu in drinkMenus">
-          <h3>{{drinkMenu.category}}</h3>
-          <div>
-            <ul class="drink-panel">
-	      <li ng-repeat="drinkId in drinkMenu.drinks">
-	        <div class="drink">
-                  {{drinks[drinkId].name}}
-	          <div><button class="more" ng-click="doOrder(drinkId)">+</button><button class="less" ng-click="lessOrder(drinkId)">-</button><span class="price">€5,00</span></div>
-	        </div>
-	      </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-   
-   <!-- Where functionality will happen -->
-    <div class = "main">
-      <p></p> <!-- Não remover este paragrafo vazio-->
-      <div id="alc1" style="display: none">
-        <p>COLOQUE UMA MÃO NO ECRÃ</p>
-        <img src="handy-hand.png" onclick="randAlc()">
-        <button id="stop" onclick="hideAlc()">Cancelar</button>
-      </div>
-      <div id="alc2" style="display: none">
-        <p>Resultado: 0,6 g/L &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; Limite Legal: 0,5 g/L</p>
-        <p>É ilegal a condução no seu estado</p>
-        <p>Peça a um amigo que o leve a casa ou chame um táxi.</p>
-        <button id="ok" onclick="hideAlc()">Ignorar</button>
-	<button id="calltaxi" onclick="callCab(); hideAlc()">Chamar Táxi</button>
-      </div>
-      <div id="alc3" style="display: none">
-        <p>Resultado: 0,1 g/L &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; Limite Legal: 0,5 g/L</p>
-        <p>Apresenta um estado ainda bastante aceitável.</p>
-        <p>Que tal pedir mais uma bebida?</p>
-        <button id="ok" onclick="hideAlc()">Ignorar</button>
-	<button id="showorder" onclick="showOrder(); hideAlc()">Pedir Bebida</button>
-      </div>
-      <div id="alc4" style="display: none">
-        <p>Resultado: 0,00 g/L &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; Limite Legal: 0,5 g/L</p>
-        <p>Parece que alguem ainda não bebeu nada.</p>
-        <p>Está na altura de pedir uma bebida</p>
-        <button id="ok" onclick="hideAlc()">Ignorar</button>
-	<button id="showorder" onclick="showOrder(); hideAlc()">Pedir Bebida</button>
-      </div>
-      <div id="alc5" style="display: none">
-        <p>Resultado: 1,2 g/L &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; Limite Legal: 0,5 g/L</p>
-        <p>Wow, apresenta um estado lastimável.</p>
-        <p>Convém parar de beber...</p>
-        <button id="ok" onclick="hideAlc()">Ok</button>
-        <button id="calltaxi" onclick="callCab(); hideAlc()">Chamar Táxi</button>
-      </div>
-	<div id="orderalert" style="display: none">
-		<p>O seu pedido foi registado!</p>
-		<button id="hideorderalert" onclick="hideOrderAlert()">OK</button>
-	</div>
+<h1 style="color: green">Interfaces Pessoa Máquina 2015-16</h1>
+<h2>Grupo 63 - Turno IPM201113L04</h2>
 
-	<div id="musicalert" style="display: none">
-		<p>A sua sugestão foi registada!</p>
-		<button id="hidemusicalert" onclick="hideMusicAlert()">OK</button>
-	</div>
-	<div id="cabalert" style="display: none">
-		<p>Foi chamado o táxi 83 para si!</p>
-		<button id="hidecabalert" onclick="hideCab()">OK</button>
-	</div>
-	<div id="helpalert" style="display: none">
-		<p>Pode usar o menu apresentado á sua esquerda para adicionar as bebidas que deseja pedir, para isso deve selecionar o uma das secções apresentadas e da lista que irá aparecer adicionar ou remover o número de bebidas que pretenda.</p>
-		<p></p>
-		<p>Por exemplo: Seleciona "Popular", e carrega no "+" em "Vodka" para adicionar uma vodka ao seu pedido.</p>
-		<p></p>
-		<p>Pode usar o menu apresentado á sua direita para aceder ás várias opções que tem disponiveis, carregando em cima da opção que pretenda.</p>
-		<p></p>
-		<button id="hidehelpalert" onclick="hideHelp()">OK</button>
-	</div>
-	  <div id="queue" style="display: none">
-		<p><b>A seguir:</b></p>
-		<p>Garth Brooks - Friends in Low Places</p>
-		<p>Van Morrison - Brown Eyed Girl</p>
-		<p>LMFAO - Shots</p>
-		<p id="showqueue"></p>
-	  </div>
-	  <div id="music" style="display: none">
-		<p><b>Sugira uma música:</b></p>
-		<form action="" onSubmit="event.preventDefault()">
-			<input type="radio" name="music" value="Closing">Semisonic - Closing Time<br>
-			<input type="radio" name="music" value="Believe">Journey - Don’t Stop Believing<br>
-			<input type="radio" name="music" value="Prayer">Bon Jovi - Livin’ on a Prayer<br>
-			<input type="radio" name="music" value="Caroline">Neil Diamond - Sweet Caroline<br>
-			<input type="radio" name="music" value="Sugar">Def Leppard - Pour Some Sugar on Me<br>
-			<button id="okmusic" onclick="requestSong(music.value)">Sugerir</button>
-			<button id="stopmusic" onclick="cancelMusic()">Cancelar</button>
-		</form>
-	  </div>
-      <div id="order" ng-controller="orderCtrl" style="display: none">
-        <div>PEDIDO</div>
-        <ul>
-          <li ng-repeat="(drinkId, amount) in getOrderList()">
-            {{drinks[drinkId].name + ' x' + amount}}
-          </li>
-        </ul>
-        <button id="okorder" onclick="confirmOrder()" ng-click="resetOrder()">Pedir</button>
-        <button id="cancelorder" onclick="cancelOrder()" >Cancelar</button>
-     </div>
-	<div id="payalert" style="display: none">
-		<p>O valor da sua conta é o apresentado no canto superior esquerdo. </p>
-		<p></p>
-		<p>Pretende pagar esse valor?</p>
-		<p></p>
-		<button id="Pay" onclick="confirmPay()">Pagar</button>
-		<button id="CancelPay" onclick="hidePay()">Cancel</button>
-	</div>
-	<div id="confirmpayalert" ng-controller="orderCtrl" style="display: none">
-		<p>Tem a certeza que pretende pagar?</p>
-		<button id="Confirm" ng-click="countTozero()" onclick="finalizePay()">Confirmar</button>
-		<button id="CancelConfirm" onclick="hideconfirmPay()">Cancel</button>
-	</div>
-	<div id="payedalert" style="display: none">
-		<p>A sua conta foi paga.</p>
-		<button id="OkPay" onclick="hidefinalizePay()">Ok</button>
-	</div>
-	
-    </div>
-   
-   
-    
-	<div id="menu">
-	  <div class = "right-sidebar" ng-controller="orderCtrl">
-        <ul>
-		  <li onclick="goHome()">INICIO</li>
-		  <li onclick="showOrder()">PEDIR</li>
-          <li onclick="goPay()">PAGAR</li>
-          <li onclick="doMusic()">MÚSICA</li>
-          <li onclick="notImplemented()">JOGAR</li>
-          <li onclick="doAlc1()">ALCOOLÍMETRO</li>
-          <li onclick="callCab()">TAXI</li>
-          <li onclick="notImplemented()">METEOROLOGIA</li>
-          <li onclick="notImplemented()">CALENDÁRIO</li>
-		  <li onclick="goHelp()">AJUDA</li>  
-       </ul>
-     </div>  
-   </div>
-  </body>
+
+<table align=center>
+  <tr>
+    <td width="33%">Tiago Santos</td>
+    <td width="33%">Marcos Pires</td> 
+    <td width="33%">Ricardo Tavares</td>
+    </tr>
+    <tr>
+    <td>68199</td>
+    <td>72850</td> 
+    <td>78198</td>
+  </tr>
+  <tr id="images">
+    <td><img onclick="changeImage({id: '#rgb', src: 'student1.png', othersrc: 'ist168199.jpg'})" id="rgb" src = "student1.png"></td>
+    <td><img onclick="changeImage({id: '#cmy', src: 'student2.png', othersrc: 'marcos.png'})" id="cmy" src = "student2.png"></td> 
+    <td><img onclick="changeImage({id: '#hsv', src: 'student3.png', othersrc: 'ist178198.jpg'})" id="hsv" src = "student3.png"></td>
+  </tr>
+</table>
+
+<div id="links" style="text-align: left;">
+<p>
+
+<div id="at" class="section">
+<h2 class="section">Análise de Tarefas</h2>
+<div id="at_inner" class="inner_section">
+<a href="analise-tarefas/questionario.pdf">Questionário para análise de tarefas</a> <br />
+<a href="analise-tarefas/barista.pdf">Questionário para análise de tarefas (melhorado)</a> <br />
+<a href="analise-tarefas/63A.pdf">Análise de tarefas + Funcionalidades</a> <br />
+<a href="analise-tarefas/melhorado.pdf">Análise de tarefas + Funcionalidades (melhorados)</a> <br />
+</div>
+</div>
+
+<div id="mc" class="section">
+<h2 class="section">Modelo Conceptual</h2>
+<div id="mc_inner" class="inner_section">
+<a href="modelo-conceptual/63A.pdf">Modelo Conceptual</a> <br />
+<a href="mod-conceptual2.html">Modelo Conceptual (melhorado)</a> <br />
+</div>
+</div>
+
+<div id="proto" class="section">
+<h2 class="section">Protótipos</h2>
+<div id="proto_inner" class="inner_section">
+<a href="pbf1.html">PBF</a> <br />
+<a href="pbf2.html">PBF (melhorado)</a> <br />
+<a href="prototipo/0.0.1/index.html">Primeiro protótipo funcional</a> <br />
+<a href="protFuncional1-completo.html">Primeiro protótipo funcional completo</a> <br />
+<a href="protFuncional2-beta.html">Segundo protótipo funcional</a> <br />
+<a href="protFuncional2-completo.html">Segundo protótipo funcional completo</a><br />
+<a href="prototipo/0.0.5/index.html">Protótipo Final</a> <br />
+<a href="prototipo/0.0.6/index.html">Protótipo Final completo</a><br />
+</div>
+</div>
+
+<div id="au" class="section">
+<h2 class="section">Avaliação com Utilizadores</h2>
+<div id="au_inner" class="inner_section">
+<a href="tarefas-criterios1.html">Tarefas e Critérios de usabilidade</a> <br />
+<a href="tarefas-criterios2.html">Tarefas e Critérios de usabilidade (melhorado)</a> <br />
+<a href="relatorioTestes1.html">Relatório da avaliação com utilizadores</a> <br />
+<a href="relatorioTestes2.html">Relatório da avaliação com utilizadores (melhorado)</a> <br />
+<a href="manual.html">Manual do Utilizador</a> <br />
+</p>
+</div>
+</div>
+
+</div>
+<script>
+
+</script>
+
+
+</body>
 </html>
