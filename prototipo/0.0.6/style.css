@@ -1,0 +1,427 @@
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  background-image: url("imagemteste.jpg");	
+  background-size: 100%;
+  background-color: black;
+  color: white;
+  font-size: 20pt;
+  line-height: 1.5em;
+  margin: 50px 150px 100px 80px;
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+
+
+li {
+  list-style-type: none;
+}
+
+.right-sidebar li{
+  -webkit-border-radius: 34;
+  -moz-border-radius: 34;
+  border-radius: 34px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  background: #000000;
+  padding: 5px 10px 5px 10px;
+  border: solid #050505 1px;
+  margin:0.4em;
+}
+.right-sidebar li:hover{
+  background: #eff4f7;
+  background-image: -webkit-linear-gradient(top, #eff4f7, #0c0d0d);
+  background-image: -moz-linear-gradient(top, #eff4f7, #0c0d0d);
+  background-image: -ms-linear-gradient(top, #eff4f7, #0c0d0d);
+  background-image: -o-linear-gradient(top, #eff4f7, #0c0d0d);
+  background-image: linear-gradient(to bottom, #eff4f7, #0c0d0d);
+}
+
+div.left-sidebar {
+  width: 25%;
+  min-height: 99vh;
+  float: left;
+}
+
+.drink-panel {
+	background-color: rgba(0,0,0,0.66);
+	margin: -0.5em 0;
+	border-radius: 14pt;
+	padding: 20px 0 20px 20px;
+}
+
+.left-sidebar h3{
+	-webkit-border-radius: 34;
+  -moz-border-radius: 34;
+  border-radius: 34px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  background: #000000;
+  padding: 5px 10px 5px 10px;
+  border: solid #050505 2px;
+  text-align: center;
+  vertical-align: middle;
+}
+.left-sidebar h3:hover{
+  background: #eff4f7;
+  background-image: -webkit-linear-gradient(top, #eff4f7, #0c0d0d);
+  background-image: -moz-linear-gradient(top, #eff4f7, #0c0d0d);
+  background-image: -ms-linear-gradient(top, #eff4f7, #0c0d0d);
+  background-image: -o-linear-gradient(top, #eff4f7, #0c0d0d);
+  background-image: linear-gradient(to bottom, #eff4f7, #0c0d0d);
+}
+
+.main {
+  width: 49%;
+  float: left;
+}
+
+.right-sidebar {
+  width: 25%;
+  float: left;
+}
+.top-scrollbar {
+	position: relative;
+	width: 50%;
+}
+
+.top-scrollbar h3 {
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ margin: 0;
+ line-height: 50px;
+ text-align: center;
+ /* Starting position */
+ -moz-transform:translateX(100%);
+ -webkit-transform:translateX(100%);	
+ transform:translateX(100%);
+ /* Apply animation to this element */	
+ -moz-animation: top-scrollbar 15s linear infinite;
+ -webkit-animation: top-scrollbar 15s linear infinite;
+ animation: top-scrollbar 15s linear infinite;
+}
+/* Move it (define the animation) */
+@-moz-keyframes top-scrollbar {
+ 0%   { -moz-transform: translateX(70%); }
+ 100% { -moz-transform: translateX(35%); }
+}
+@-webkit-keyframes top-scrollbar {
+ 0%   { -webkit-transform: translateX(70%); }
+ 100% { -webkit-transform: translateX(35%); }
+}
+@keyframes top-scrollbar {
+ 0%   { 
+ -moz-transform: translateX(70%); /* Firefox bug fix */
+ -webkit-transform: translateX(70%); /* Firefox bug fix */
+ transform: translateX(70%); 		
+ }
+ 100% { 
+ -moz-transform: translateX(35%); /* Firefox bug fix */
+ -webkit-transform: translateX(35%); /* Firefox bug fix */
+ transform: translateX(35%); 
+ }
+}
+
+div#popular > h3 {
+  text-align: left;
+
+}
+
+div#menu {
+  text-align: center;
+  line-height: 2em;
+}
+
+div#alc1 p {
+  text-align: center;
+  margin-top: 10%;
+}
+
+div#alc2 {
+  margin-left: 1.5em;
+  margin-top: 10%;
+  line-height: 2em;
+}
+
+div#alc3 {
+  margin-left: 1.5em;
+  margin-top: 10%;
+  line-height: 2em;
+}
+
+div#alc4 {
+  margin-left: 1.5em;
+  margin-top: 10%;
+  line-height: 2em;
+}
+
+div#alc5 {
+  margin-left: 1.5em;
+  margin-top: 10%;
+  line-height: 2em;
+}
+
+div#alc1 img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+div#music {
+  text-align: left;
+  line-height: 2em;
+  margin-top: 5%;
+ 
+
+  
+}
+
+div#queue {
+  text-align: left;
+  line-height: 1em;
+  margin-top: 10%;
+  
+  
+}
+button {
+  border: none;
+  font-size: 24pt;
+  color: white; 
+}
+
+#order {
+	background: rgba(128, 128, 128, 0.7);
+	width: 60%;
+	margin: auto;
+	padding: 1em;
+	margin-top: 20%;
+	
+}
+
+#hideorderalert {
+  background-color: green;
+  position: absolute;
+}
+
+#orderalert {
+	background: rgba(128, 128, 128, 0.7);
+	width: 60%;
+	margin: auto;
+	padding: 1em;
+	margin-top: 20%;
+	
+}
+
+#hidemusicalert {
+  background-color: green;
+  position: absolute;
+}
+
+
+#music {
+	background: rgba(128, 128, 128, 0.8);
+	width: 60%;
+	margin:auto;
+	
+	
+}
+
+#queue{
+	background: rgba(128, 128, 128, 0.8);
+	width: 60%;
+	margin:auto;
+	margin-top: 20%;
+	
+	
+}
+#musicalert {
+	background: rgba(128, 128, 128, 0.7);
+	width: 60%;
+	margin: auto;
+	padding: 1em;
+	margin-top: 20%;
+	
+}
+
+
+#hidecabalert {
+	background-color: green;
+    position: absolute;
+}
+
+#hidehelpalert {
+	background-color: green;
+    position: absolute;
+}
+
+#cabalert {
+	background: rgba(128, 128, 128, 0.7);
+	width: 60%;
+	margin: auto;
+	padding: 1em;
+	margin-top: 20%;
+}
+
+#helpalert {
+	background: rgba(128, 128, 128, 0.7);
+	width: 80%;
+	margin: auto;
+	padding: 1em;
+	margin-top: 15%;
+}
+
+#stop {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: red;
+}
+
+#ok {
+  position: absolute;
+  background-color: #0a0;
+}
+
+#calltaxi {
+  position: absolute;
+  left: 50%;
+  background-color: blue;
+}
+
+#showorder {
+  position: absolute;
+  left: 50%;
+  background-color: blue;
+}
+
+#okmusic {
+	background-color: green;
+	position:absolute;
+}
+
+#stopmusic {
+	background-color: red;
+	position:absolute;
+	left: 50%;
+}
+
+#okorder {
+	background-color: green;
+	position: absolute;
+}
+
+#cancelorder {
+	background-color: red;
+	position: absolute;
+	left: 50%;
+}
+
+#payalert {
+	background: rgba(128, 128, 128, 0.7);
+	width: 60%;
+	margin: auto;
+	padding: 1em;
+	margin-top: 20%;
+}
+
+#confirmpayalert {
+	background: rgba(128, 128, 128, 0.7);
+	width: 60%;
+	margin: auto;
+	padding: 1em;
+	margin-top: 20%;
+}
+
+#payedalert {
+	background: rgba(128, 128, 128, 0.7);
+	width: 60%;
+	margin: auto;
+	padding: 1em;
+	margin-top: 20%;
+}
+
+#Pay {
+	background-color: green;
+    position: absolute;
+}
+
+#Confirm {
+	background-color: green;
+    position: absolute;
+}
+
+#OkPay {
+	background-color: green;
+    position: absolute;
+}
+
+#CancelPay {
+	background-color: red;
+	position: absolute;
+	left: 50%;
+}
+
+#CancelConfirm {
+	background-color: red;
+	position: absolute;
+	left: 50%;
+}
+
+#alc2 {
+	background: rgba(128, 128, 128, 0.7);
+	width: 80%;
+	margin: auto;
+	padding: 1em;
+	margin-top: 20%;
+}
+
+#alc3 {
+	background: rgba(128, 128, 128, 0.7);
+	width: 80%;
+	margin: auto;
+	padding: 1em;
+	margin-top: 20%;
+}
+
+#alc4 {
+	background: rgba(128, 128, 128, 0.7);
+	width: 80%;
+	margin: auto;
+	padding: 1em;
+	margin-top: 20%;
+}
+
+#alc5 {
+	background: rgba(128, 128, 128, 0.7);
+	width: 80%;
+	margin: auto;
+	padding: 1em;
+	margin-top: 20%;
+}
+.drink {
+	padding-right: 0.5em;
+}
+
+.drink button {
+	margin-right: 1em;
+}
+
+.drink > div {
+	text-align: right;
+}
+
+.more {
+	background-color: #0a0;
+}
+
+.less {
+	background-color: red;
+}
+
+
